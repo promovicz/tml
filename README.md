@@ -2,6 +2,8 @@
 
 This is a little tool I wrote that can format a crooked subset of Pango style annotations to ANSI strings using terminfo.
 
+Uses expat for XML parsing.
+
 Use like this:
     user@dev-general:~/tml$ ./compile.sh
     user@dev-general:~/tml$ ./tml2tty -h
@@ -15,4 +17,6 @@ Use like this:
     user@dev-general:~/tml$ 
 
 Output should colored on terminals that support it.
+
+Also see asciicast: https://asciinema.org/a/367208.
 
