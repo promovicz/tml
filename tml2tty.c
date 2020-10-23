@@ -81,6 +81,7 @@ struct attributes {
   int sup;
   int blink;
   int reverse;
+  int standout;
 };
 
 static void attr_zero(struct attributes *attr) {
@@ -399,7 +400,7 @@ static void attr_switch(struct processor *this,
   if(set_attributes && (set || flg > 1)) {
     /* optimized call */
     emit_tparm(this, set_attributes,
-	       0, new->u, new->reverse,
+	       new->standout, new->u, new->reverse,
 	       new->blink, 0, new->b,
 	       0, 0, 0);
   } else {
@@ -419,6 +420,10 @@ static void attr_switch(struct processor *this,
     if(new->reverse) {
       emit_tparm(this, enter_reverse_mode);
     }
+    /* set standout */
+    if(new->reverse) {
+      emit_tparm(this, enter_standout_mode);
+    }
   }
 
   /* set italic */
@@ -426,6 +431,12 @@ static void attr_switch(struct processor *this,
     emit_tparm(this, enter_italics_mode);
   } else if((!old || old->i) && !all) {
     emit_tparm(this, exit_italics_mode);
+  }
+  /* set superscript */
+  if(new->standout && (!old || !old->standout)) {
+    emit_tparm(this, enter_standout_mode);
+  } else if((!old || old->standout) && !all) {
+    emit_tparm(this, exit_standout_mode);
   }
   /* set subscript */
   if(new->sub && (!old || !old->sub)) {
@@ -522,6 +533,8 @@ static void element_span_start(struct processor *this,
       a->blink = boolean_decode(val);
     } else if(strcmp(att, "reverse") == 0) {
       a->reverse = boolean_decode(val);
+    } else if(strcmp(att, "standout") == 0) {
+      a->standout = boolean_decode(val);
     }
   }
   attr_apply(this);
@@ -581,6 +594,14 @@ static void element_reverse_start(struct processor *this,
 				  const XML_Char **atts)
 {
   attr_push(this)->reverse = 1;
+  attr_apply(this);
+}
+
+static void element_standout_start(struct processor *this,
+				   const XML_Char *name,
+				   const XML_Char **atts)
+{
+  attr_push(this)->standout = 1;
   attr_apply(this);
 }
 
@@ -651,6 +672,7 @@ struct element elements[] = {
   {"sup", element_sup_start, element_attr_end},
   {"blink", element_blink_start, element_attr_end},
   {"reverse", element_reverse_start, element_attr_end},
+  {"standout", element_standout_start, element_attr_end},
   /* colors */
   {"black", element_fgcolor_start, element_attr_end},
   {"red", element_fgcolor_start, element_attr_end},
