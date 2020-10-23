@@ -1,0 +1,23 @@
+# Travis configuration for tml
+#
+
+language: c
+
+sudo: false
+
+os:
+  - linux
+
+compiler:
+  - gcc
+  - clang
+
+script:
+  - ./compile.sh
+  - cat demo.xml | ./tmux2tty -t dumb
+
+addons:
+  apt:
+    packages:
+      - libexpat1-dev
+      - libncurses-dev
