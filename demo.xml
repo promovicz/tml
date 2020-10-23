@@ -1,3 +1,27 @@
 <tml><p><span bold="true" bg="blue">Test Document</span></p>
-<p>This is a test document. It's purpose is to test the TML converter.</p>
-<p><red>TEST</red><green>TEST</green><blue>TEST</blue></p></tml>
+<br/><p>This is a test document. It's purpose is to test the TML converter.</p>
+<br/><p><red>TEST</red><green>TEST</green><blue>TEST</blue></p>
+<br/><p>Supported attributes:
+
+  <b>bold</b>
+  <i>italics</i>
+  <u>underline</u>
+  <blink>blink</blink>
+  <reverse>reverse</reverse>
+  <standout>standout</standout>
+  <sub>subscript</sub>
+  <sup>superscript</sup>
+</p>
+<p>Basic colors:
+
+  <span bg="black" fg="default">default</span> <span bg="white" fg="default">default</span>
+  <span bg="black" fg="black">black</span>   <span bg="white" fg="black">black</span>
+  <span bg="black" fg="red">red</span>     <span bg="white" fg="red">red</span>
+  <span bg="black" fg="green">green</span>   <span bg="white" fg="green">green</span>
+  <span bg="black" fg="yellow">yellow</span>  <span bg="white" fg="yellow">yellow</span>
+  <span bg="black" fg="blue">blue</span>    <span bg="white" fg="blue">blue</span>
+  <span bg="black" fg="magenta">magenta</span> <span bg="white" fg="magenta">magenta</span>
+  <span bg="black" fg="cyan">cyan</span>    <span bg="white" fg="cyan">cyan</span>
+  <span bg="black" fg="white">white</span>   <span bg="white" fg="white">white</span>
+</p>
+</tml>
