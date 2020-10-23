@@ -18,7 +18,7 @@ TESTTESTTEST
 user@host:~/tml$ 
 ```
 
-Output should colored on terminals that support it.
+Output should be colored on terminals that support it.
 
 Also see asciicast: https://asciinema.org/a/367208.
 
