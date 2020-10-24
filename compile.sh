@@ -50,9 +50,8 @@ if ! pkg expat; then
   fail "Need expat installed."
 fi
 
-# NOTE would like to use tinfo, but that fails on some systems
-#if pkg tinfo; then
-#  true
+if pkg tinfo; then
+  true
 if pkg ncursesw; then
   true
 elif pkg ncurses; then
