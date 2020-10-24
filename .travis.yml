@@ -14,7 +14,7 @@ compiler:
 
 script:
   - ./compile.sh
-  - cat demo.xml | ./tmux2tty -t dumb
+  - cat demo.xml | ./tml2tty -t dumb
 
 addons:
   apt:
