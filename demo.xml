@@ -1,5 +1,5 @@
-<tml><p><span bold="true" bg="blue">Test Document</span></p>
-<br/><p>This is a test document. It's purpose is to test the TML converter.</p>
+<tml><p><span bold="true" bg="blue">Demo Document</span></p>
+<br/><p>This is a demonstration document. It's purpose is to demonstrate TML formatting.</p>
 <br/><p><red>TEST</red><green>TEST</green><blue>TEST</blue></p>
 <br/><p>Supported attributes:
 
