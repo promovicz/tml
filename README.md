@@ -2,7 +2,9 @@
 
 This is a little tool I wrote that can format a crooked subset of Pango style annotations to ANSI strings using terminfo.
 
-Uses expat for XML parsing.
+Currently this is a single-pass utility, and there are no format instructions except for line breaks.
+
+Uses expat for XML parsing and ncurses/terminfo for terminal support.
 
 Use like this:
 ```
