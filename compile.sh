@@ -52,7 +52,7 @@ fi
 
 if pkg tinfo; then
   true
-if pkg ncursesw; then
+elif pkg ncursesw; then
   true
 elif pkg ncurses; then
   true
